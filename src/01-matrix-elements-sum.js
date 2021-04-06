@@ -14,34 +14,6 @@
  *
  * The result should be 9
  */
-// matrix = [
-//  [0, 1, 1, 2],
-//  [0, 5, 0, 0],
-//  [2, 0, 3, 3]
-// ];
-
-// const arr = [
-//   [1],
-//   [5],
-//   [0],
-//   [2],
-// ];
-
-//   matrix = [
-//   [0],
-//   ];
-
-//   matrix = [
-//   [1, 1, 1],
-//   [2, 2, 2],
-//   [3, 3, 3],
-// ];             //  18
-
-// const arr = [
-// [1, 2, 3, 4],
-// [0, 5, 0, 0],
-// [2, 0, 3, 3],
-// ];      // 15
 
 function getMatrixElementsSum(matrix) {
   let sum = 0;
@@ -57,4 +29,3 @@ function getMatrixElementsSum(matrix) {
 }
 
 module.exports = getMatrixElementsSum;
-// getMatrixElementsSum(arr);
