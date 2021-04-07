@@ -21,8 +21,62 @@
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new Error('Not implemented');
+
+// const arrOfMines = [
+//  [true, false, false],
+//  [false, true, false],
+//  [false, false, false]
+// ];
+
+function minesweeper(matrix) {
+  const numberMatrix = [];
+  matrix.forEach((el) => {
+    let z = [];
+    z = el.slice();
+    numberMatrix.push(z);
+  });
+  numberMatrix.forEach((el) => el.fill(0));
+
+  // function flagAdd(indexRow, indexEl) {
+  // }
+
+  // let mineArr = [];
+  matrix.forEach((el, indexRow) => el.forEach((innerEl, indexEl) => {
+    if (innerEl === true) {
+      if (indexRow - 1 >= 0 && indexEl - 1 >= 0) {
+        numberMatrix[indexRow - 1][indexEl - 1] += 1;
+      }
+      if (indexRow - 1 >= 0 && indexEl >= 0) {
+        numberMatrix[indexRow - 1][indexEl] += 1;
+      }
+      if (indexRow - 1 >= 0
+          && indexEl + 1 >= 0
+          && indexEl + 1 < numberMatrix[indexRow - 1].length) {
+        numberMatrix[indexRow - 1][indexEl + 1] += 1;
+      }
+      if (indexEl - 1 >= 0) {
+        numberMatrix[indexRow][indexEl - 1] += 1;
+      }
+      // mineArr.push(numberMatrix[indexRow][indexEl]);
+      if (indexEl + 1 < numberMatrix[indexRow].length) {
+        numberMatrix[indexRow][indexEl + 1] += 1;
+      }
+      if (indexRow + 1 < numberMatrix.length && indexEl - 1 >= 0) {
+        numberMatrix[indexRow + 1][indexEl - 1] += 1;
+      }
+      if (indexRow + 1 < numberMatrix.length) {
+        numberMatrix[indexRow + 1][indexEl] += 1;
+      }
+      if (indexRow + 1 < numberMatrix.length && indexEl + 1 < numberMatrix[indexRow].length) {
+        numberMatrix[indexRow + 1][indexEl + 1] += 1;
+      }
+    }
+  }));
+
+  // console.log('mineArr: ', mineArr);
+  // return console.log(numberMatrix);
+  return numberMatrix;
 }
 
 module.exports = minesweeper;
+// minesweeper(arrOfMines);
