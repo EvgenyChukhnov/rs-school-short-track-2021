@@ -9,8 +9,18 @@
  * For n = 152, the output should be 52
  *
  */
-function deleteDigit(/* n */) {
-  throw new Error('Not implemented');
+
+// let muNum = 15253003774;
+
+function deleteDigit(n) {
+  const num = n.toString().split('');
+  const min = Math.min(...num);
+  num.splice(num.indexOf(min.toString()), 1);
+  const result = num.join('');
+
+  return Number(result);
 }
 
 module.exports = deleteDigit;
+
+// deleteDigit(muNum);
