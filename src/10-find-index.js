@@ -13,10 +13,6 @@
  */
 
 function findIndex(array, value) {
-  // let sum = 0;
-  // if (array[0] !== 0) {
-  //   sum = value - array[0];
-  // }
   return value - array[0];
 }
 
