@@ -11,8 +11,14 @@
  * For ([1, 2, 3], 2) should return 1
  *
  */
-function findIndex(/* array, value */) {
-  throw new Error('Not implemented');
+
+function findIndex(array, value) {
+  // let sum = 0;
+  // if (array[0] !== 0) {
+  //   sum = value - array[0];
+  // }
+  return value - array[0];
 }
 
 module.exports = findIndex;
+// findIndex([5, 6, 7], 7);    // 2
