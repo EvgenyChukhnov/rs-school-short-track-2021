@@ -1,10 +1,10 @@
-class ListNode {
-  constructor(x) {
+function ListNode (x) {
+
     this.value = x;
     this.next = null;
     // this.head = null;
     // this.length = 0;
-  }
+
 
   // removeAt(position) {
   //   if (position < 0 || this.length <= position) {
