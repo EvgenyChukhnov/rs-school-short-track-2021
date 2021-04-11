@@ -1,3 +1,5 @@
+const ListNode = require('../extensions/list-node');
+
 /**
  * Implement the Stack with a given interface via array.
  *
@@ -11,16 +13,34 @@
  *
  */
 class Stack {
-  push(/* element */) {
-    throw new Error('Not implemented');
+  constructor() {
+    this.top = null;
+    this.length = 0;
+  }
+
+  push(value) {
+    const node = new ListNode(value);
+
+    if (this.top) {
+      node.next = this.top;
+      this.top = node;
+    } else {
+      this.top = node;
+    }
+
+    this.length++;
   }
 
   pop() {
-    throw new Error('Not implemented');
+    const current = this.top;
+    this.top = this.top.next;
+    this.length--;
+
+    return current.value;
   }
 
   peek() {
-    throw new Error('Not implemented');
+    return this.top.value;
   }
 }
 
