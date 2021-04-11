@@ -18,10 +18,29 @@
  *   '.ru.yandex.code': 1,
  *   '.ru.yandex.music': 1,
  * }
- *
  */
-function getDNSStats(/* domains */) {
-  throw new Error('Not implemented');
+// incomingDomains = ['epam.com']
+
+function getDNSStats(domains) {
+  const incomingArr = domains;
+  const result = {};
+
+  const arraysFromStrings = incomingArr.map((el) => el.split('.'));
+
+  arraysFromStrings.forEach((el) => {
+    let string = '';
+    for (let i = el.length - 1; i >= 0; i--) {
+      string += `.${el[i]}`;
+      if (result[`${string}`]) {
+        result[`${string}`] += 1;
+      } else {
+        result[string] = 1;
+      }
+    }
+  });
+
+  return result;
 }
 
 module.exports = getDNSStats;
+// getDNSStats(incomingDomains);
