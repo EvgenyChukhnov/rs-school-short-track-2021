@@ -13,8 +13,29 @@
  */
 
 function findIndex(array, value) {
-  return value - array[0];
+  // return value - array[0];
+  let result;
+  const arrCopy = array;
+  let currentIndex = arrCopy.length - 1;
+  let divider = arrCopy.length - 1;
+
+  if (arrCopy[currentIndex] === value) {
+    result = currentIndex;
+  } else {
+    while (arrCopy[currentIndex] !== value) {
+      divider = Math.ceil(divider / 2);
+      if (arrCopy[currentIndex] > value) {
+        currentIndex -= divider;
+      } else {
+        currentIndex += divider;
+      }
+
+      if (arrCopy[currentIndex] === value) result = currentIndex;
+    }
+  }
+
+  return result;
 }
 
 module.exports = findIndex;
-// findIndex([5, 6, 7], 7);    // 2
+// findIndex([1, 2, 3, 4, 5], 5);
